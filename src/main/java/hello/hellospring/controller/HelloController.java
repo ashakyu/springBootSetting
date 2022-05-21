@@ -16,7 +16,7 @@ public class HelloController {
         /*
         MVC와 템플릿 엔진 View와 Controller, Model을 분리해 로직을 한다.
         기존 model1 방식은 View에 모든 로직을 처리해 반환을 했다면 이를 보완하기 위해 model2을 적용한다.
-         */
+         흠 .. */
 
         return "hello";
     }
