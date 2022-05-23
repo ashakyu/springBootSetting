@@ -8,6 +8,9 @@
     Hello
     <a href="/hello">Hello</a>
     <!--스프링 부트가 제공하는 Welcome Page
-     static/index.html을 올려두면 Welcome page 기능을 제공한다.-->
+     static/index.html을 올려두면 Welcome page 기능을 제공한다.
+     만약 "/"최상위 도메인의 값에 controller가 동작하면 index.html은 우선순위에서 밀려나간다.
+     because : uri 매핑을 처음받아 톰캣서버가 실행될 때 스프링 컨테이너를 가장 먼저 보고 이후 없으면
+     resources/static을 보기 때문이다. -->
 </body>
 </html>
