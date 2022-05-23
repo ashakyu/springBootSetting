@@ -8,15 +8,14 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 public class HelloController {
     @GetMapping("hello")
-    public String hello(Model model){
+    public String hello(Model model) {
         model.addAttribute("data", "hello!!");
         //return = templates 하위의 파일들을 찾아 렌더링한다.('viewResolver' 작동)
         //정확한 위치 : 'resources:templates/ + viewName + .html'
 
         /*
         MVC와 템플릿 엔진 View와 Controller, Model을 분리해 로직을 한다.
-        기존 model1 방식은 View에 모든 로직을 처리해 반환을 했다면 이를 보완하기 위해 model2을 적용한다.
-         흠 .. */
+        기존 model1 방식은 View에 모든 로직을 처리해 반환을 했다면 이를 보완하기 위해 model2을 적용한다.*/
 
         return "hello";
     }
@@ -26,7 +25,7 @@ public class HelloController {
     해당 return 값에 맞는 값을 찾아 html변환 후 웹 브라우저에게 보여준다.
      */
     @GetMapping("hello-mvc")
-    public String helloMvc(@RequestParam(name = "name", required = false) String name, Model model){
+    public String helloMvc(@RequestParam(name = "name", required = false) String name, Model model) {
         model.addAttribute("name", name);
         return "hello-template";
     }
