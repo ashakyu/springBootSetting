@@ -1,6 +1,6 @@
 package hello.hellospring;
 
-import hello.hellospring.repository.JdbcMemberRepository;
+import hello.hellospring.repository.JdbcTemplateMemberRepository;
 import hello.hellospring.repository.MemberRepository;
 import hello.hellospring.service.MemberService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,7 +32,10 @@ public class SpringConfig {
         -확장에는 열려있고, 수정에는 닫혀있다.(객체기향에서 다형성을 기반으로 활용을 한다면 동작 구현 코드는 수정하지 않고
         기능 추가는 가능하다)
          */
-        return new JdbcMemberRepository(dataSource);
+
+        //return new JdbcMemberRepository(dataSource);
+
+        return new JdbcTemplateMemberRepository(dataSource);
     }
 }
 

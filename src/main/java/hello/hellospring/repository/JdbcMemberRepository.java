@@ -17,7 +17,7 @@ public class JdbcMemberRepository implements MemberRepository {
     }
     //Conntection을 생성자에 선언하지 않는 이유 : dataSourceUtils을 통해서 같은 데이터베이스를 유지시켜야한다.
     @Override
-    public Member save(Member member) {
+    public Optional<Member> save(Member member) {
         String sql = "insert into member(name) values(?)";
 
         Connection conn = null;
@@ -43,7 +43,7 @@ public class JdbcMemberRepository implements MemberRepository {
             } else {
                 throw new SQLException("id 조회 실패");
             }
-            return member;
+            return Optional.of(member);
         } catch (Exception e) {
             throw new IllegalStateException(e);
         } finally {
