@@ -1,31 +1,31 @@
 package hello.hellospring;
 
-import hello.hellospring.repository.JpaMemberRepository;
-import hello.hellospring.repository.MemberRepository;
+import hello.hellospring.repository.*;
 import hello.hellospring.service.MemberService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-import javax.persistence.EntityManager;
-
 @Configuration
 public class SpringConfig {
-    private EntityManager em;
+
+    private final MemberRepository memberRepository;
 
     @Autowired
-    public SpringConfig(EntityManager em) {
-        this.em = em;
+    public SpringConfig(MemberRepository memberRepository) {
+        this.memberRepository = memberRepository;
     }
+
 
     @Bean
     public MemberService memberService() {
-        return new MemberService(memberRepository());
+        return new MemberService(memberRepository);
     }
 
+/*
     @Bean
-    public MemberRepository memberRepository() {
-        //return new MemoryMemberRepository();
+    public MemberRepository memberRepository() {*/
+    //return new MemoryMemberRepository();
         /*
         기존 MemoryMemberRepository -> JDBC로 변경하는 과정에서 Config만을 통해 손쉬운 변경이 가능하다.
         Spring을 왜 쓸까?
@@ -36,10 +36,11 @@ public class SpringConfig {
         기능 추가는 가능하다)
          */
 
-        //return new JdbcMemberRepository(dataSource);
+    //return new JdbcMemberRepository(dataSource);
 
-        //return new JdbcTemplateMemberRepository(dataSource);
-        return new JpaMemberRepository(em);
-    }
+    //return new JdbcTemplateMemberRepository(dataSource);
+    //return new JpaMemberRepository(em); }
+
+
 }
 

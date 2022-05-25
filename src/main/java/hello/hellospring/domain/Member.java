@@ -13,7 +13,6 @@ public class Member {
     private Long id;
 
     //컬럼명과 도메인 값을 일치시켜 수도 있다.
-    @Column(name="name")
     private String name;
 
     public Long getId() {

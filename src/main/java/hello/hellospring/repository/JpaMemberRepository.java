@@ -15,7 +15,7 @@ public class JpaMemberRepository implements MemberRepository {
     }
 
     @Override
-    public Optional<Member> save(Member member) {
+    public Member save(Member member) {
         em.persist(member);
         /*
         persist
@@ -29,7 +29,7 @@ public class JpaMemberRepository implements MemberRepository {
         새로운 상태 : persist()
         이미있는 상태 : merge()
          */
-        return Optional.ofNullable(member);
+        return member;
     }
 
     @Override

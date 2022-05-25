@@ -1,7 +1,7 @@
 package hello.hellospring.service;
 
 import hello.hellospring.domain.Member;
-import hello.hellospring.repository.MemoryMemberRepository;
+import hello.hellospring.repository.MemberRepository;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -18,7 +18,7 @@ class MemberServiceIntegrationTest {
     @Autowired
     MemberService memberService;
     @Autowired
-    MemoryMemberRepository memberRepository;
+    MemberRepository memberRepository;
 
     //test는 반복할 수 있어야하나 같은 이름의 회원가입을 한다면 Exception이 뜨게 된다.
     //테스트 끝난 후 Rollback을 한다.
